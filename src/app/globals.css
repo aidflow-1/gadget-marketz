@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — Gadget Marketz */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #d9e6ff;
+  --color-brand-200: #bcd3ff;
+  --color-brand-300: #8eb6ff;
+  --color-brand-400: #598cff;
+  --color-brand-500: #3563ff;
+  --color-brand-600: #1f43f5;
+  --color-brand-700: #1832e1;
+  --color-brand-800: #1a2bb6;
+  --color-brand-900: #1c2b8f;
+  --color-brand-950: #151b57;
+
+  /* Ink — deep navy neutral base */
+  --color-ink-50: #f5f7fa;
+  --color-ink-100: #e9edf3;
+  --color-ink-200: #cfd8e3;
+  --color-ink-300: #a7b6cb;
+  --color-ink-400: #778cac;
+  --color-ink-500: #566c8f;
+  --color-ink-600: #435576;
+  --color-ink-700: #374560;
+  --color-ink-800: #313c51;
+  --color-ink-900: #0e1525;
+  --color-ink-950: #070b16;
+
+  /* Accent — electric lime for deals & CTAs */
+  --color-accent-300: #d7f96a;
+  --color-accent-400: #c2f23a;
+  --color-accent-500: #a8e60d;
+  --color-accent-600: #84b80a;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-4xl: 2rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0e1525;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .container-px {
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 1024px) {
+    .container-px {
+      padding-inline: 2rem;
+    }
+  }
+}
+
+/* Subtle marquee for the brand strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Decorative grid background for dark sections */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
